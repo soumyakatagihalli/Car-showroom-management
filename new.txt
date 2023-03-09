@@ -1,0 +1,135 @@
+
+select ttime,tdate,cuphone,cuemail
+from transactions t inner join customer c on t.cuid=t.cuid ;
+
+select cname,cphone,sname,sphone,stname,stphone
+from company c right outer join salesconsultant s on c.cid=s.cid right outer join stores st on c.cid=st.cid;
+
+select cname,caddress,sname,saddress,stname,staddress
+from company c left outer join salesconsultant s on c.cid=s.cid left outer join stores st on c.cid=st.cid;
+
+select sname,tdate
+from salesconsultant s full outer join transactions t on s.scid=t.scid
+order by sname;
+
+select carname,cartype,carmodelname,tdate
+from carmodel cross join transactions;
+
+select *
+from company c join stores st on c.cid=st.cid join salesconsultant s on c.cid=s.cid join carmodel cm on c.cid=cm.cid;
+
+select cuname
+from customer
+where cuid=all( select cuid
+                from transactions
+                where ttime=10);
+
+select tid,tdate,ttime
+from transactions
+where tdate between '12-jan-1988' and '24-jan-1989';  
+
+select * from salesconsultant
+where sage >some (select sage
+                  from salesconsultant
+                  where sage>19);
+
+select sname
+sage,(10+sage)
+from salesconsultant
+where(10+sage)>21;
+
+select sname
+newage,(sage*2)
+from salesconsultant
+where (sage*2)>21;
+
+select tdate,cuphone
+from transactions t 
+inner join customer c 
+on t.cuid=t.cuid 
+where tdate <> '28-01-02'
+order by tdate;
+
+select cname,cid
+from company
+where cid in ( select cid
+                from salesconsultant
+                group by cid
+                having count (*)>1);
+                
+select scid, count(scid) 
+from salesconsultant
+where cid=1001
+group by scid;
+
+select sname,scid
+from salesconsultant
+where sage=(select min(sage) from salesconsultant);
+
+select cuname as customername
+from customer 
+where cuid=(select max(cuid) from customer);
+
+select sname
+from salesconsultant
+where ascii(substr(sname,1,1))=65
+order by sname;
+
+select ln(29) "natural_log of 29"
+from salesconsultant
+where scid=4004;
+
+select add_months('12-apr-1992',3)
+from salesconsultant
+where scid=4004;
+
+select upper('Tata Motors')
+from company
+where cid=1005;
+
+select length('#31 Ravinagar Banagalore Karnataka')
+from stores
+where stid=6001;
+
+
+select caddress
+from company
+where cid in (select cid
+               from salesconsultant
+               where scid in( select scid
+                                 from transactions
+                                 where tid in( select tid
+                                                from customer
+                                                where cuemail='rakeshhp@gmail.com')));
+select cid
+from company
+where cid in( select cid
+             from carmodel    
+             where carid in(select carid
+                           from transactions
+                           where tdate='22-apr-1992'));
+
+select cname
+from company
+where cid in (select cid
+               from salesconsultant
+               where scid in( select scid
+                                 from transactions
+                                 where tid in( select tid
+                                                from stores
+                                                where stname='a')));
+ 
+select carname
+from carmodel
+where carid in( select carid
+             from transactions  
+             where tid in(select tid
+                           from customer
+                           where cuname='Ramesh'));
+                                                
+ select cname,cid
+ from   company 
+ where cid in(select cid
+            from salesconsultant
+            where saddress='#4 Gokul Road Mysore  Karnataka');
+            
