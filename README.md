@@ -20,15 +20,20 @@ small organization has challenged to overcome all the loop holes of its manageme
 # PROBLEM STATEMENT: 
 Consider a car showroom database where a sales manager manages transaction details, car models sold, and customer/car owner information. The following are the data requirements: 
 
-## SALES MANAGER ENTITY: Sales managers in a manufacturing organisation are uniquely identified by individual ids. In addition, the manager's name, phone number, address, age, and gender are also recorded. 
+# SALES MANAGER ENTITY: 
+Sales managers in a manufacturing organisation are uniquely identified by individual ids. In addition, the manager's name, phone number, address, age, and gender are also recorded. 
 
-## BRAND ENTITY: A manufacturing company with multiple sales managers is assigned a unique company id. In addition, the names of the brands (companies), the address where the company is situated, and the names of the proprietors(owner) too are recorded. 
+# BRAND ENTITY:
+A manufacturing company with multiple sales managers is assigned a unique company id. In addition, the names of the brands (companies), the address where the company is situated, and the names of the proprietors(owner) too are recorded. 
 
-## TRANSACTION DETAILS ENTITY: Ids, which are unique identifiers for each transaction, are included in the transaction data. In addition, the transaction's description and details are all recorded. 
+# TRANSACTION DETAILS ENTITY: 
+Ids, which are unique identifiers for each transaction, are included in the transaction data. In addition, the transaction's description and details are all recorded. 
 
-## CAR MODEL ENTITY: The details of car models include unique car ids for each vehicle. The names of car models and car types are also recorded. 
+# CAR MODEL ENTITY:
+The details of car models include unique car ids for each vehicle. The names of car models and car types are also recorded. 
 
-## CUSTOMER’S ENTITY: Sales consultants assist customers/car owners. Customer information, where each customer is uniquely identified by his/her own id, customer names, addresses, phone numbers, and email addresses are all recorded.
+# CUSTOMER’S ENTITY: 
+Sales consultants assist customers/car owners. Customer information, where each customer is uniquely identified by his/her own id, customer names, addresses, phone numbers, and email addresses are all recorded.
 
 # Objectives of the project:
 Following are the objectives of the project :
